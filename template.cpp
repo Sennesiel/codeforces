@@ -1,6 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define fori(a,b) for(int a = 0; a < b; a++)
+#define pri(a) printf("%d ", a)
+#define prnl() printf("\n")
+#define si(a) scanf("%d", &a)
+#define snl() scanf("\n")
+#define min3(a,b,c) min(a,min(b,c))
+#define vi vector<int>
+#define vb vector<bool>
+#define qi queue<int>
+
 /*
 typedef struct ?????
 {
@@ -12,16 +22,6 @@ typedef struct ?????
 */
 
 //const int ????? = ;
-
-#define fori(a,b) for(int a = 0; a < b; a++)
-#define pri(a) printf("%d ", a)
-#define prnl() printf("\n")
-#define si(a) scanf("%d", &a)
-#define snl() scanf("\n")
-#define min3(a,b,c) min(a,min(b,c))
-#define vi vector<int>
-#define vb vector<bool>
-#define qi queue<int>
 
 void init()
 {
