@@ -1,6 +1,8 @@
 typedef struct sparse_table
 {
 	vector<vector<int>> tab;
+	bool estMax;
+	int mm(int a, int b){estMax?return max(a,b):return min(a,b);}
 	void build(vector<int> debut)
 	{
 		int taille = debut.size();
@@ -9,14 +11,17 @@ typedef struct sparse_table
 		{
 			if(1 << i <= taille)
 			{
+				vector<int> v;
+				tab.push_back(v);
 				for(int j = 0; j <= taille - (1 << i); j++)
 				{
-					tab[i][j] = min(tab[i - 1][j],tab[i - 1][j + (1 << (i - 1))]);
+					tab[i].push_back(mm(tab[i - 1][j],tab[i - 1][j + (1 << (i - 1))], estMax));
 				}
 			}
 		}
 	}
-	int minimum(int debut, int fin)
+
+	int query(int debut, int fin)
 	{
 		int i = 0;
 		while( 1 << i <= fin-debut)
@@ -25,6 +30,6 @@ typedef struct sparse_table
 		}
 		i--;
 		if(debut == fin){i=0;}
-		return min(tab[i][debut],tab[i][fin-(1<<i)]);
+		return mm(tab[i][debut],tab[i][fin-(1<<i)+1/***/],estMax);
 	}
 }sparse_table;
